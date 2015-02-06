@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-push-6">
+      <div data-ng-controller="NavCtrl" class="list-group">
+        <div class="list-group-item">
+          <strong>入れ子ビューのメニュー</strong>
+        </div>
+        <a href="/private" active-nav class="list-group-item">入れ子ビュー</a>
+        <a href="/private/nested" active-nav class="list-group-item">もう一つの入れ子ビュー</a>
+        <a href="/private/admin" active-nav data-access-level="accessLevels.admin" class="list-group-item">管理者用の入れ子ビュー</a>
+      </div>
+    </div>
+    <div data-ui-view class="col-md-6 col-md-pull-4"></div>
+  </div>
+</div>

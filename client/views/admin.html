@@ -1,0 +1,18 @@
+<h1>管理画面</h1>
+<p>管理者のみ閲覧可能</p>
+<table data-ng-hide="loading" class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>ログイン名</th>
+      <th>権限</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-ng-repeat="user in users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.role }}</td>
+    </tr>
+  </tbody>
+</table>

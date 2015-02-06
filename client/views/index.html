@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja" data-ng-app="angular-client-side-auth">
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>認証と認可の実装</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+
+  <body data-ng-cloak>
+    <div data-ng-controller="NavCtrl" class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <ul class="nav nav-tabs">
+            <li data-access-level="accessLevels.guest_level" active-nav><a href="/login">ログイン</a></li>
+            <li data-access-level="accessLevels.guest_level" active-nav><a href="/register">アカウント作成</a></li>
+            <li data-access-level="accessLevels.nomal_level" active-nav><a href="/">ホーム</a></li>
+            <li data-access-level="accessLevels.nomal_level" active-nav="nestedTop"><a href="/private">プライベート</a></li>
+            <li data-access-level="accessLevels.admin_level" active-nav><a href="/admin">管理者用</a></li>
+            <li data-access-level="accessLevels.nomal_level"><a href="" data-ng-click="logout()">ログアウト</a></li>
+            <div id="userInfo" data-access-level="accessLevels.nomal_level" class="pull-right">
+              ログイン名: {{ user.username }}&nbsp;
+              ロール: {{ user.role.title }}
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div data-ui-view class="container"></div>
+
+    <div id="alertBox" data-ng-show="error" class="alert alert-danger">
+      <button type="button" data-ng-click="error = null;" class="close">&times;</button>エラーがあります<span data-ng-bind="error"></span>
+    </div>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="scripts/routingConfig.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/users.js"></script>
+    <script src="scripts/services/auth.js"></script>
+    <script src="scripts/controllers/admin.js"></script>
+    <script src="scripts/controllers/nav.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/register.js"></script>
+    <script src="scripts/filters.js"></script>
+    <script src="scripts/directives.js"></script>
+
+  </body>
+</html>
